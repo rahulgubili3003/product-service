@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-products
+    environment:
+      POSTGRES_USER: worker
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: products-online-store
+    ports:
+      - "5432:5432"
