@@ -8,3 +8,5 @@ services:
       POSTGRES_DB: products-online-store
     ports:
       - "5432:5432"
+    volumes:
+      - /Users/rahul.gubiligari/Desktop/Go_Projects/volumes:/var/lib/postgresql/data
