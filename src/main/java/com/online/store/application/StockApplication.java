@@ -27,14 +27,19 @@ public class StockApplication {
                 findProductsByProductId(
                         stockRequest.productId())
                 .orElseThrow(() -> new ProductNotFoundException(PRODUCT_NOT_FOUND));
+
         final Stock stock = Stock.builder()
                 .productId(product)
                 .noOfItems(stockRequest.noOfItems())
                 .build();
+
         try {
             stockRepository.save(stock);
-            return StockResponse.builder().noOfItems(stockRequest.noOfItems()).build();
+            return StockResponse.builder()
+                    .noOfItems(stockRequest.noOfItems())
+                    .build();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             throw new DBOperationException(SAVING_IN_DB_FAILURE);
         }
     }
