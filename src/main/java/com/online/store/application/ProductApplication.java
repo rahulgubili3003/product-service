@@ -41,6 +41,9 @@ public class ProductApplication {
     }
 
     public ProductResponse addProducts(final ProductRequest productRequest) {
+        if (productRequest == null) {
+            throw new IllegalArgumentException("productRequest cannot be null");
+        }
         final Products product = Products.builder()
                 .productId(productRequest.productId())
                 .productName(productRequest.productName())
