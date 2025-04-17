@@ -37,4 +37,11 @@ public class ProductsController {
         final String jsonString = JsonResponseUtil.createJsonString(allProducts);
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(jsonString);
     }
+
+    @GetMapping("/findProducts")
+    public ResponseEntity<String> findProducts(@RequestParam(defaultValue = "productName") final String productName) {
+        final var products = productApplication.getProducts(productName);
+        final String jsonString = JsonResponseUtil.createJsonString(products);
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(jsonString);
+    }
 }
