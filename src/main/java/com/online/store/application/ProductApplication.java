@@ -61,4 +61,8 @@ public class ProductApplication {
                 .fullPrice(savedProduct.getFullPrice())
                 .build();
     }
+
+    public String getProducts() {
+        return  null;
+    }
 }
