@@ -18,4 +18,5 @@ public record ProductRequest(
         Label label,
         String image
 ) {
+
 }
