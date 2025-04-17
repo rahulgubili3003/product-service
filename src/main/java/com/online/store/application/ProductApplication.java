@@ -40,9 +40,9 @@ public class ProductApplication {
                 .build();
     }
 
-    public ProductResponse addProducts(final ProductRequest productRequest) {
+    public ProductResponse addProducts(final ProductRequest productRequest) throws Exception {
         if (productRequest == null) {
-            throw new IllegalArgumentException("productRequest cannot be null");
+            throw new Exception("productRequest cannot be null");
         }
         final Products product = Products.builder()
                 .productId(productRequest.productId())
@@ -59,9 +59,9 @@ public class ProductApplication {
         final var savedProduct = productsRepository.save(product);
         // Prepare the Response Object
         return ProductResponse.builder()
-                .productId(savedProduct.getProductId())
+                .productId(null)
                 .productName(savedProduct.getProductName())
-                .fullPrice(savedProduct.getFullPrice())
+                .fullPrice(null)
                 .build();
     }
 }
