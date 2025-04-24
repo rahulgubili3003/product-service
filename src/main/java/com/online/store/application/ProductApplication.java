@@ -61,4 +61,26 @@ public class ProductApplication {
                 .fullPrice(savedProduct.getFullPrice())
                 .build();
     }
+
+    public ProductResponse addProducts(final ProductRequest productRequest) {
+        final Products product = Products.builder()
+                .productId(productRequest.productId())
+                .productName(productRequest.productName())
+                .productDescription(productRequest.description())
+                .fullPrice(productRequest.fullPrice())
+                .priceWithoutTax(productRequest.priceWithoutTax())
+                .category(productRequest.category())
+                .subCategory(productRequest.subCategory())
+                .label(productRequest.label())
+                .image(productRequest.image())
+                .build();
+        // Save Product in the DB
+        final var savedProduct = productsRepository.save(product);
+        // Prepare the Response Object
+        return ProductResponse.builder()
+                .productId(null)
+                .productName(savedProduct.getProductName())
+                .fullPrice(savedProduct.getFullPrice())
+                .build();
+    }
 }
