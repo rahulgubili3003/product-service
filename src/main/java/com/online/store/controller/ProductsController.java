@@ -28,7 +28,7 @@ public class ProductsController {
         final var jsonString = JsonResponseUtil.createJsonString(savedProduct);
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(jsonString);
+                .body(null);
     }
 
     @GetMapping("/displayProducts")
