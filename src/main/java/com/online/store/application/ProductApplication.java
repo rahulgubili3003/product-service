@@ -61,4 +61,8 @@ public class ProductApplication {
                 .fullPrice(savedProduct.getFullPrice())
                 .build();
     }
+
+    public List<Products> findProducts(String productName) {
+        return productsRepository.findProductsByProductName(productName);
+    }
 }
