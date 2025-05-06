@@ -1,6 +1,11 @@
 server:
   port: 8082
 
+logging:
+  level:
+    root: DEBUG
+    org.springframework: DEBUG
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/products-online-store
