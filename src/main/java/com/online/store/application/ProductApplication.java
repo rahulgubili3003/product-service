@@ -23,6 +23,7 @@ public class ProductApplication {
     private final StockRepository stockRepository;
 
     public List<DetailedProductResponse> getProducts(@NonNull final String sortBy) {
+        log.debug("Fetching products sorted by: {}", sortBy);
         return productsRepository.findAll(Sort.by(sortBy)).stream().map(this::buildDetailedResponse).toList();
     }
 
