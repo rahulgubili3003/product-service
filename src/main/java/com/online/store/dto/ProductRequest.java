@@ -9,6 +9,7 @@ import com.online.store.enums.SubCategory;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record ProductRequest(
         Long productId,
+        Long inventoryId,
         String productName,
         String description,
         Integer fullPrice,
@@ -18,4 +19,5 @@ public record ProductRequest(
         Label label,
         String image
 ) {
+
 }
